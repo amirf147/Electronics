@@ -31,8 +31,43 @@ def id(Is, Vd):
     # Returns the current through the diode
 
     """Is is reverse saturation current in pA, i.e. 10)
-       Vd is the applied forward-bias voltage across the diode"""
+       Vd is the applied voltage across the diode"""
 
     Is = Is * 10E-12
 
     return (Is * (math.exp((Vd/(n * Vt))) - 1))
+
+#DC or Static Resistance
+
+def Rdc(Vd, Id, Rb):
+
+    #Returns the static resistance
+
+    """Id is the current across diode)
+       Vd is the applied voltage across the diode
+       Rb is the body and contact resistance"""
+
+    return (Vd/Id) + Rb
+
+#AC or Dynamic Resistance and Average Resistance
+
+def Rac(deltaVd, deltaId, Rb):
+
+    #Returns the dynamic resistance
+    #Can be used to calculate average resistace
+
+    """deltaVd is the change in voltage across diode
+       deltaId is the change in current across diode
+       Rb is the body and contact resistance"""
+
+    return (deltaVd / deltaId) + Rb
+
+def RacAlt(Vt, Id, Rb):
+
+    #Returns the dynamic resistance, ohms
+
+    """Vt is the Thermal Resistance
+       Id is the current through the diode
+       Rb is the body and contact resistance"""
+
+    return (Vt / deltaId) + Rb
