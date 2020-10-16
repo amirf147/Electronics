@@ -1,4 +1,4 @@
-#Ideal Diode Characteristics
+#Diode Characteristics
 
 import math
 
