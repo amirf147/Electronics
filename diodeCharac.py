@@ -71,3 +71,20 @@ def RacAlt(Vt, Id, Rb):
        Rb is the body and contact resistance"""
 
     return (Vt / deltaId) + Rb
+
+
+# Zener Diodes
+
+# Using Temperature Coefficient formula to determine change in
+# in zener potential
+
+Tc = .072 # temperature coefficient from datasheet, %/degC
+Vz = 10 # nominal zener voltage, V
+T0 = 25 # room temperature , degC
+
+def deltaVz(T1):
+
+    #Returns the change in zener potential due to temperature
+    """new temperature level, celsius"""
+
+    return ((Tc * Vz)/100)*(T1 - T0)
